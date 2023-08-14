@@ -101,26 +101,164 @@ public class SuviorData : MonoBehaviour
         suviorCtrl.ChangeWeapon(gunScript.MainOrNot);
     }
 
-    /// <summary>
-    /// 装备背包
-    /// </summary>
-    /// <param name="str">背包预制体的路径</param>
-    public void EquipBackPack(string str)
+    public item_Equipment LoadEquipmentForResource(string str)
     {
-        GameObject o = Instantiate(Resources.Load<GameObject>(str));
-        item_Equipment_BackPack script = o.GetComponent<item_Equipment_BackPack>();
-        EquipEquipment(script);
-        animCtrl.bagSpriteRender.sprite = script.inGameSprite;
-        backPack = script;
-        Debug.Log("装备了背包");
+        GameObject o = Instantiate(Resources.Load<GameObject>(str), this.transform);
+        item_Equipment script = o.GetComponent<item_Equipment>();
+        return script;
     }
 
-    public void UnEquipBackPack()
+    /// <summary>
+    /// 装备"装备"
+    /// </summary>
+
+    public void EquipE(item_Equipment script)
     {
-        UnEquipEquipMent(backPack);
-        animCtrl.bagSpriteRender.sprite = animCtrl.bag_Basic;
-        Destroy(backPack.gameObject);
-        backPack = null;
+
+        switch (script.itemType)
+        {
+            case item.ItemType.bag4:
+                item_Equipment_BackPack script1 = script.gameObject.GetComponent<item_Equipment_BackPack>();
+                animCtrl.bagSpriteRender.sprite = script1.inGameSprite;
+                backPack = script1;
+                break;
+            case item.ItemType.clothing5:
+                item_Equipment_Clouth script2 = script.gameObject.GetComponent<item_Equipment_Clouth>();
+                animCtrl.leftHandS = script2.leftHandS;
+                animCtrl.rightHandS = script2.rightHandS;
+                animCtrl.bodyS = script2.BodyS;
+                animCtrl.leftArmS = script2.leftArmS;
+                animCtrl.rightArmS = script2.rightArms;
+                clouth = script2;
+                break;
+            case item.ItemType.coat6:
+                item_Equipment_Outer script3 = script.gameObject.GetComponent<item_Equipment_Outer>();
+                animCtrl.outerSpriterRender.sprite = script3.inGameSprite;
+                outer = script3;
+                break;
+            default:
+                break;
+        }
+        EquipEquipment(script);
+    }
+    public bool TryUnEquipE(item item)
+    {
+        int cellInNeed = 0;
+        if(item.itemType== item.ItemType.bag4|| item.itemType == item.ItemType.clothing5|| item.itemType == item.ItemType.coat6)
+        {
+            cellInNeed = item.gameObject.GetComponent<item_Equipment>().SpaceCount;
+            foreach (var item1 in item.gameObject.GetComponent<item_Equipment>().StorageSpace)
+            {
+                if (item1.Count == 0)
+                {
+                    cellInNeed--;
+                }
+            }
+        }
+        switch (item.itemType)
+        {
+            //case item.ItemType.gun2:
+            //    int a = TryStorgeItem(item, 1, true, true, true);
+            //    if (a == 0)
+            //    {
+            //        UnEquipE(item);
+            //        return true;
+            //    }
+            //    else
+            //    {
+            //        return false;
+                //}
+            case item.ItemType.bag4:
+                if (CalcIfCouldStorge(cellInNeed, false, true, true) == true)
+                {
+                    UnEquipE(item);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            case item.ItemType.clothing5:
+                if (CalcIfCouldStorge(cellInNeed, true, false, true) == true)
+                {
+                    UnEquipE(item);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case item.ItemType.coat6:
+                if (CalcIfCouldStorge(cellInNeed, true, true, false) == true)
+                {
+                    UnEquipE(item);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            default:
+                return false;
+        }
+
+
+
+
+    }
+    public void UnEquipE(item item)
+    {
+        UnEquipEquipMent(item.gameObject.GetComponent<item_Equipment>());
+        switch (item.itemType)
+        {
+            case item.ItemType.bag4:
+                animCtrl.bagSpriteRender.sprite = animCtrl.bag_Basic;
+                foreach (var item1 in item.gameObject.GetComponent<item_Equipment>().StorageSpace)
+                {
+                    if (item1.Count > 0)
+                    {
+                        TryStorgeItem(item1.ItemInCell, item1.Count, false, true, true);
+                        item1.CleanCell();
+                    }
+                }
+                TryStorgeItem(item, 1, false, true, true);
+                backPack = null;
+                break;
+            case item.ItemType.clothing5:
+                animCtrl.leftHandS = animCtrl.leftHandS_Basic;
+                animCtrl.rightHandS = animCtrl.rightHandS_Basic;
+                animCtrl.bodyS = animCtrl.bodyS_Basic;
+                animCtrl.leftArmS = animCtrl.leftArmS_Basic;
+                animCtrl.rightArmS = animCtrl.rightArmS_Basic;
+                foreach (var item2 in item.gameObject.GetComponent<item_Equipment>().StorageSpace)
+                {
+                    if (item2.Count > 0)
+                    {
+                        TryStorgeItem(item2.ItemInCell, item2.Count, true, false, true);
+                        item2.CleanCell();
+                    }
+                }
+                TryStorgeItem(item, 1, true, false, true);
+                clouth = null;
+                break;
+            case item.ItemType.coat6:
+                animCtrl.outerSpriterRender.sprite = animCtrl.outer_Basic;
+                foreach (var item3 in item.gameObject.GetComponent<item_Equipment>().StorageSpace)
+                {
+                    if (item3.Count > 0)
+                    {
+                        TryStorgeItem(item3.ItemInCell, item3.Count, true, true, false);
+                        item3.CleanCell();
+                    }
+                }
+                TryStorgeItem(item, 1, true,true, false);
+                outer = null;
+                break;
+            default:
+                break;
+        }
+
     }
 
     private void EquipEquipment(item_Equipment itemScript)
@@ -135,13 +273,59 @@ public class SuviorData : MonoBehaviour
         dmgObj.ChangeMaxHp(-itemScript.HpAdd);
         dmgObj.ChangeArmor(-itemScript.DefenseAdd);
     }
-
+    /// <summary>
+    /// 计算能否将一个容器内的物品全部放入其他容器内
+    /// </summary>
+    /// <param name="cellCount"></param>
+    /// <returns></returns>
+    public bool CalcIfCouldStorge(int cellCount,bool useBag,bool useClouth,bool useCoat)
+    {
+        int extarCell = 0;
+        if(useBag==true&& backPack != null)
+        {
+            foreach (var item in backPack.StorageSpace)
+            {
+                if (item.Count == 0)
+                {
+                    extarCell++;
+                }
+            }
+        }
+        if (useClouth == true && clouth != null)
+        {
+            foreach (var item in clouth.StorageSpace)
+            {
+                if (item.Count == 0)
+                {
+                    extarCell++;
+                }
+            }
+        }
+        if (useCoat == true && outer != null)
+        {
+            foreach (var item in outer.StorageSpace)
+            {
+                if (item.Count == 0)
+                {
+                    extarCell++;
+                }
+            }
+        }
+        if (extarCell > cellCount)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     /// <summary>
     /// 尝试存入物品
     /// </summary>
     /// <param name="item"></param>
     /// <param name="count"></param>
-    public int TryStorgeItem(item item, int count)
+    public int TryStorgeItem(item item, int count,bool useBag,bool useClouth,bool useCoat)
     {
         //为了防止错误标注了不可堆叠物品的数量,这里如果物品不可堆叠就强制数量为1
         if (item.stackAble == false)
@@ -155,28 +339,29 @@ public class SuviorData : MonoBehaviour
         }
         //extarNum表示往一件装备中存入东西后剩余的数量
         int extraNum = count;
+        
+        if (backPack != null && useBag==true)
+        {
+            extraNum -= extraNum- backPack.TryStorageItem(item, count);
+            if (extraNum == 0)
+            {
+                return 0;
+            }
+        }
         //先尝试存入衣服
-        if (clouth != null)
+        if (clouth != null&&useClouth==true)
         {
-            extraNum -= clouth.TryStorageItem(item, count);
+            extraNum -= extraNum- clouth.TryStorageItem(item, count);
             if (extraNum == 0)
             {
                 return 0;
             }
         }
-        //然后尝试存入背包
-        if (backPack != null)
-        {
-            extraNum -= backPack.TryStorageItem(item, count);
-            if (extraNum == 0)
-            {
-                return 0;
-            }
-        }
+
         //最后尝试存入外挂
-        if (outer != null)
+        if (outer != null&&useCoat==true)
         {
-            extraNum -= outer.TryStorageItem(item, count);
+            extraNum -= extraNum- outer.TryStorageItem(item, count);
             if (extraNum == 0)
             {
                 return 0;

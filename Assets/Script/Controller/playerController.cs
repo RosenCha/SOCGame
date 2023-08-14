@@ -8,11 +8,37 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public SuviorCtrl InCtrlSuvior;
+    public GameManager gm;
     // Update is called once per frame
+
+    private void Start()
+    {
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+    }
     void Update()
     {
-        MoveCtrl();
-        AimCtrl();
+        if (gm.Pausing == false)
+        {
+            MoveCtrl();
+            AimCtrl();
+        }
+        UiCtrl();
+    }
+
+    private void UiCtrl()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            if (gm.Pausing == false)
+            {
+                gm.PauseGame(true);
+                
+            }
+            else
+            {
+                gm.PauseGame(false);
+            }
+        }
     }
     private void AimCtrl()
     {

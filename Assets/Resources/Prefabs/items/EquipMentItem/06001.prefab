@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3348567322133744681
+--- !u!1 &5154676962786817626
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2318838556283078131}
-  - component: {fileID: 8982586102980196288}
+  - component: {fileID: 4779542829558251065}
+  - component: {fileID: 8009809475003550238}
   m_Layer: 0
-  m_Name: 04001
+  m_Name: 06001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2318838556283078131
+--- !u!4 &4779542829558251065
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3348567322133744681}
+  m_GameObject: {fileID: 5154676962786817626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5897596, y: 0.559575, z: 0.009517301}
+  m_LocalPosition: {x: 540.656, y: 301.4593, z: -4.796788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8982586102980196288
+--- !u!114 &8009809475003550238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3348567322133744681}
+  m_GameObject: {fileID: 5154676962786817626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d76c5f39ec6d4b34081a7be829e8f8fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 9974a70feae83e846876d8466fb8e1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 04001
-  itemType: 4
+  ID: 06001
+  itemType: 6
   ImageInPack: {fileID: 0}
-  Name: "\u5C0F\u9EC4\u5305"
-  Descirbe: "\u7834\u635F\u7684\u5C0F\u9EC4\u5305,\u770B\u8D77\u6765\u5DF2\u7ECF\u5F88\u6709\u5E74\u5934\u4E86"
+  Name: "\u91CE\u6218\u6307\u6325\u5B98\u80F8\u7532"
+  Descirbe: "\u6C89\u91CD\u7684\u88C5\u7532\u94A2\u5F39\u6302\u80F8\u7532, \u975E\u5E38\u4EBA\u53EF\u4EE5\u9A7E\u9A6D"
   Weight: 0
   stackAble: 0
   stackCount: 0
-  SpaceCount: 3
+  SpaceCount: 4
   HpAdd: 0
   DefenseAdd: 0
   StorageSpace: []
-  inGameSprite: {fileID: 21300000, guid: 97a8750437562a34fae19612084614ea, type: 3}
+  inGameSprite: {fileID: 21300000, guid: a4f97408dd8e50f43b98cadeb68dc5fd, type: 3}

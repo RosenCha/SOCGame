@@ -5,6 +5,7 @@ using UnityEngine;
 //player controller,which manage  the charactor logic 
 public class SuviorCtrl : MonoBehaviour
 {
+    public GameManager gm;
     [SerializeField]
     //角色坐标
     Transform PlayerTrans;
@@ -31,6 +32,8 @@ public class SuviorCtrl : MonoBehaviour
     Transform Body;
     bool isAiming;
     private int gunType;
+
+
 
     //玩家使用的枪械类型，0步枪，1轻型手枪，2重型手枪,切换武器会改变动画
     public int GunType
@@ -98,19 +101,26 @@ public class SuviorCtrl : MonoBehaviour
 
     private void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
         InsCtrlParas();
         isAiming = false;
         suviorState = SuviorAnimState.standing;
 
         suviorData.EquipGun(TestPistol);
         suviorData.EquipGun(TestRifle);
+        suviorData.EquipE(suviorData.LoadEquipmentForResource("Prefabs/items/EquipMentItem/04001"));
+        suviorData.EquipE(suviorData.LoadEquipmentForResource("Prefabs/items/EquipMentItem/05001"));
+        suviorData.EquipE(suviorData.LoadEquipmentForResource("Prefabs/items/EquipMentItem/06001"));
     }
     private void Update()
     {
-        AimCtor();
-        MoveCtor(2, inputVector);
-        GunShotCtrl();
-        GunShotTimer();
+        if (gm.Pausing == false)
+        {
+            AimCtor();
+            MoveCtor(2, inputVector);
+            GunShotCtrl();
+            GunShotTimer();
+        }
     }
     //射击计时器，用于决定武器是否允许射击
     private void GunShotTimer()

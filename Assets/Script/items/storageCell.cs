@@ -78,8 +78,21 @@ public class storageCell : MonoBehaviour
     /// 清空格子
     /// </summary>
     public void CleanCell() {
-        Destroy(ItemInCell.gameObject);
+        //if (ItemInCell != null)
+        //{
+        //    Destroy(ItemInCell.gameObject);
+        //}
+
         itemInCell = null;
         count = 0;
+    }
+
+    public void TransToAnotherCell(storageCell cell)
+    {
+        if (cell.count == 0)
+        {
+            cell.TryStorgeItem(itemInCell, count);
+        }
+        CleanCell();
     }
 }

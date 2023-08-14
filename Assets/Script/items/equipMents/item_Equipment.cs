@@ -19,11 +19,13 @@ public class item_Equipment : item
     /// </summary>
     public void IniEquipMent()
     {
-        StorageSpace = new List<storageCell>(SpaceCount);
-        for (int i = 0; i < stackCount; i++)
+        StorageSpace = new List<storageCell>();
+        //Debug.Log("生成了" + SpaceCount + "个格子");
+        
+        for (int i = 0; i < SpaceCount; i++)
         {
             //新建格子
-            StorageSpace[i] = new storageCell();
+            StorageSpace.Add(new storageCell());
             StorageSpace[i].CleanCell();
         }
     }
