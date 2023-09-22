@@ -19,7 +19,7 @@ public class PageButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             text.color = Color.yellow;
         }
-
+        //text test
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
