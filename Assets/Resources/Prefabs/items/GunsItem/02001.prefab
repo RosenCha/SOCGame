@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6513128712170709282}
-  - component: {fileID: 8657813119322482572}
+  - component: {fileID: 7491689891677362792}
   m_Layer: 0
   m_Name: 02001
   m_TagString: Untagged
@@ -149,7 +149,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8657813119322482572
+--- !u!114 &7491689891677362792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,37 +158,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 6513128712170709280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be78181e2ef6d6d49a43a54b7006d00e, type: 3}
+  m_Script: {fileID: 11500000, guid: 833c29e9eded45a458100e701f709ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 02001
-  itemType: 1
+  itemType: 2
   ImageInPack: {fileID: 0}
-  Name: "\u624B\u67AA"
+  Name: 
   Descirbe: 
   Weight: 0
   stackAble: 0
   stackCount: 0
-  weaponImage: {fileID: 21300000, guid: f5072c6e4092463468f2f8dfe0cc8e33, type: 3}
+  weaponImage: {fileID: 0}
   MainOrNot: 0
-  ArtType: 1
+  ArtType: 0
   ShotMod: 0
   GunCal: 0
   GunType: 0
-  MaxAmmo: 12
-  recoil: 1
+  MaxAmmo: 0
+  recoil: 0
+  recoilAdd: 0
   recoilReturn: 0
   CoolTime: 0
-  BulletCount: 1
+  BulletCount: 0
   BurstCool: 0
   BurstNum: 0
   ReloadTime: 0
-  Damage: 12
+  Damage: 0
   PierceCount: 0
-  BulletSpeed: 12
-  spriteRenderer: {fileID: 6513128711135207014}
+  BulletSpeed: 0
+  spriteRenderer: {fileID: 0}
   none: {fileID: 0}
   ShowImage: 0
-  ShotPos: {fileID: 6513128711642417902}
-  GunPrefab: {fileID: 6513128712170709280}
-  BulletPrefab: {fileID: 5287607665199696721, guid: 92705dc8e62f18840a7c7748dd65d4f0, type: 3}
+  ShotPos: {fileID: 0}
+  GunPrefab: {fileID: 0}
+  BulletPrefab: {fileID: 0}
+  prototypeOrNot: 0
+  FullArmedOrNot: 0
+  ReplaceableBarrel: 0
+  BarrelList: []
+  BarrelId: 
+  ReplaceableStock: 0
+  StockList: []
+  stockId: 
+  ReplaceableHandgurad: 0
+  HandguardList: []
+  handguardId: 
+  ReplaceableMag: 0
+  MagList: []
+  MagId: 
+  ReplaceableUprail: 0
+  UpRailList: []
+  ReplaceableSpecificPart: 0
+  UprailId: 
+  SpecificPartList: []
+  SpecificPartId: 

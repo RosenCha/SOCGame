@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 所有枪的父类
 /// </summary>
-public class item_Gun : item
+public class item_GunCore : item
 {
     public Sprite weaponImage;
 
@@ -88,6 +88,30 @@ public class item_Gun : item
             }
         }
     }
+
+    //配件相关属性
+    public bool prototypeOrNot;
+    public bool FullArmedOrNot;
+    public bool ReplaceableBarrel;
+    public List<GameObject> BarrelList;
+    public string BarrelId;
+    public bool ReplaceableStock;
+    public List<GameObject> StockList;
+    public string stockId;
+    public bool ReplaceableHandgurad;
+    public List<GameObject> HandguardList;
+    public string handguardId;
+    public bool ReplaceableMag;
+    public List<GameObject> MagList;
+    public string MagId;
+    public bool ReplaceableUprail;
+    public List<GameObject> UpRailList;
+    public bool ReplaceableSpecificPart;
+    public string UprailId;
+    public List<GameObject> SpecificPartList;
+    public string SpecificPartId;
+
+
 
     public void ActiveWeaponSprite()
     {

@@ -23,6 +23,7 @@ public class item : MonoBehaviour
         coat6,
         food7,
         med8,
-        tool9
+        tool9,
+        gunPart10,
     }
 }

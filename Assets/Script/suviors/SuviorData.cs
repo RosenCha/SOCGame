@@ -13,24 +13,24 @@ public class SuviorData : MonoBehaviour
     DmgObj dmgObj;
     [SerializeField]
     SuviroAnimController animCtrl;
-    private item_Gun mainWeapon;
+    private item_GunCore mainWeapon;
     [SerializeField]
     //主武器
-    public item_Gun MainWeapon
+    public item_GunCore MainWeapon
     {
         get { return mainWeapon; }
         set { mainWeapon = value; }
     }
     //副武器
-    private item_Gun sideWeapon;
-    public item_Gun SideWeapon
+    private item_GunCore sideWeapon;
+    public item_GunCore SideWeapon
     {
         get { return sideWeapon; }
         set { sideWeapon = value; }
     }
-    private item_Gun gunInUse;
+    private item_GunCore gunInUse;
     //正在使用的武器
-    public item_Gun GunInUse
+    public item_GunCore GunInUse
     {
         get { return gunInUse; }
         set { gunInUse = value; }
@@ -82,7 +82,7 @@ public class SuviorData : MonoBehaviour
     public void EquipGun(GameObject gun)
     {
         GameObject o = Instantiate(gun);
-        item_Gun gunScript = o.GetComponent<item_Gun>();
+        item_GunCore gunScript = o.GetComponent<item_GunCore>();
         Debug.Log("装备了枪支");
         if (gunScript.MainOrNot == true)
         {

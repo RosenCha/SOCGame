@@ -35,10 +35,12 @@ public class UI : MonoBehaviour
             FunctionPanel.SetActive(false);
             SidePanel.SetActive(false);
             PagePanel.SetActive(false);
+            TipText.gameObject.SetActive(false);
         }
     }
     public void IniUiPanel()
     {
+        TipText.gameObject.SetActive(true);
         PausePanel.SetActive(true);
         FunctionPanel.SetActive(true);
         SidePanel.SetActive(true);
