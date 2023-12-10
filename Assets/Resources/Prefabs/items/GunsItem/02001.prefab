@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f5072c6e4092463468f2f8dfe0cc8e33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6513128711642417901
@@ -164,37 +164,37 @@ MonoBehaviour:
   ID: 02001
   itemType: 2
   ImageInPack: {fileID: 0}
-  Name: 
-  Descirbe: 
+  Name: "\u624B\u67AA"
+  Descirbe: "\u6D4B\u8BD5\u7528\u4E5D\u6BEB\u7C73\u624B\u67AA"
   Weight: 0
   stackAble: 0
   stackCount: 0
-  weaponImage: {fileID: 0}
+  weaponImage: {fileID: 21300000, guid: f5072c6e4092463468f2f8dfe0cc8e33, type: 3}
   MainOrNot: 0
-  ArtType: 0
+  ArtType: 1
   ShotMod: 0
   GunCal: 0
   GunType: 0
-  MaxAmmo: 0
-  recoil: 0
-  recoilAdd: 0
-  recoilReturn: 0
-  CoolTime: 0
-  BulletCount: 0
+  MaxAmmo: 12
+  recoil: 0.2
+  recoilAdd: 0.1
+  recoilReturn: 0.1
+  CoolTime: 0.05
+  BulletCount: 1
   BurstCool: 0
   BurstNum: 0
-  ReloadTime: 0
-  Damage: 0
+  ReloadTime: 3
+  Damage: 10
   PierceCount: 0
-  BulletSpeed: 0
-  spriteRenderer: {fileID: 0}
+  BulletSpeed: 25
+  spriteRenderer: {fileID: 6513128711135207014}
   none: {fileID: 0}
   ShowImage: 0
-  ShotPos: {fileID: 0}
-  GunPrefab: {fileID: 0}
-  BulletPrefab: {fileID: 0}
-  prototypeOrNot: 0
-  FullArmedOrNot: 0
+  ShotPos: {fileID: 6513128711642417902}
+  GunPrefab: {fileID: 6513128712170709280}
+  BulletPrefab: {fileID: 5287607665199696721, guid: 92705dc8e62f18840a7c7748dd65d4f0, type: 3}
+  prototypeOrNot: 1
+  FullArmedOrNot: 1
   ReplaceableBarrel: 0
   BarrelList: []
   BarrelId: 

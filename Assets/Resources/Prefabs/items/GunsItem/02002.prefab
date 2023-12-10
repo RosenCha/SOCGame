@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1804fd457c615b34bacdcbd3f067714d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1354827985727113653
@@ -139,7 +139,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354827985826534131}
-  m_LocalRotation: {x: -0, y: -0, z: -0.24704997, w: 0.9690028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.26845613, y: 0.69726104, z: 0.01670707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -164,37 +164,37 @@ MonoBehaviour:
   ID: 02002
   itemType: 2
   ImageInPack: {fileID: 0}
-  Name: 
-  Descirbe: 
+  Name: "\u9730\u5F39\u67AA"
+  Descirbe: "\u6D4B\u8BD5\u7528\u6563\u5F39\u67AA"
   Weight: 0
   stackAble: 0
   stackCount: 0
-  weaponImage: {fileID: 0}
-  MainOrNot: 0
+  weaponImage: {fileID: 21300000, guid: 1804fd457c615b34bacdcbd3f067714d, type: 3}
+  MainOrNot: 1
   ArtType: 0
   ShotMod: 0
   GunCal: 0
-  GunType: 0
-  MaxAmmo: 0
-  recoil: 0
+  GunType: 4
+  MaxAmmo: 12
+  recoil: 0.4
   recoilAdd: 0
   recoilReturn: 0
   CoolTime: 0
-  BulletCount: 0
+  BulletCount: 8
   BurstCool: 0
   BurstNum: 0
-  ReloadTime: 0
-  Damage: 0
+  ReloadTime: 2
+  Damage: 10
   PierceCount: 0
-  BulletSpeed: 0
-  spriteRenderer: {fileID: 0}
+  BulletSpeed: 20
+  spriteRenderer: {fileID: 1354827983908858411}
   none: {fileID: 0}
   ShowImage: 0
-  ShotPos: {fileID: 0}
-  GunPrefab: {fileID: 0}
-  BulletPrefab: {fileID: 0}
-  prototypeOrNot: 0
-  FullArmedOrNot: 0
+  ShotPos: {fileID: 1354827985727113642}
+  GunPrefab: {fileID: 1354827985826534131}
+  BulletPrefab: {fileID: 5287607665199696721, guid: 92705dc8e62f18840a7c7748dd65d4f0, type: 3}
+  prototypeOrNot: 1
+  FullArmedOrNot: 1
   ReplaceableBarrel: 0
   BarrelList: []
   BarrelId: 
